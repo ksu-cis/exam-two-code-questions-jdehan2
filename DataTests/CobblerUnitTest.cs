@@ -72,5 +72,30 @@ namespace ExamTwoCodeQuestions.DataTests
             var cobbler = new Cobbler();
             Assert.IsAssignableFrom<IOrderItem>(cobbler);
         }
+
+        [Fact]
+        public void ChangingWICPropertyShouldInvokePropertyChanged()
+        {
+            var cob = new Cobbler();
+            Assert.PropertyChanged(cob, "WithIceCream", () => {
+                cob.WithIceCream = false;
+            });
+        }
+
+
+        [Fact]
+        public void ChangingWICPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var cob = new Cobbler();
+
+            Assert.PropertyChanged(cob, "SpecialInstructions", () => {
+                cob.WithIceCream = false;
+            });
+
+            
+        }
+
+
+
     }
 }

@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.ComponentModel;
 
 namespace ExamTwoCodeQuestions.Data
 {
-    public class Cobbler : IOrderItem
+    public class Cobbler : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
         /// <summary>
         /// The fruit used in the cobbler
         /// </summary>
@@ -38,5 +43,12 @@ namespace ExamTwoCodeQuestions.Data
                 else { return new List<string>() { "Hold Ice Cream" }; }
             }
         }
+
+        protected void NotifyPropertyChanged(string propertyChanged)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyChanged));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+        }
+
     }
 }

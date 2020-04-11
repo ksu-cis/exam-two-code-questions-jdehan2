@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock>Customize Cobbler</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="CustomizeCobblerLabel"
+               Grid.Row="0"
+               Content="Customize Cobbler"/>
+
+        <CheckBox x:Name="CheeseCheckbox"
+                  Grid.Row="1"
+                  Content="WITH ICE CREAM"
+                  IsChecked="{Binding Path=WithIceCream}"/>
+
     </Grid>
 </UserControl>
